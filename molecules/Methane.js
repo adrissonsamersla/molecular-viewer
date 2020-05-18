@@ -17,7 +17,7 @@ class Methane {
         bonds: [],
     }
 
-    constructor () {
+    constructor() {
         this.group = new THREE.Group();
 
         this._buildCarbon();
@@ -54,20 +54,20 @@ class Methane {
         for (let i = 0; i < 4; i++)
             this.elements.hydrogens.push(new Hydrogen());
 
-        const position = new THREE.Vector3( 0, Methane.distCH, 0 );
-        this.elements.hydrogens[0].setPosition( position.x, position.y, position.z);
+        const position = new THREE.Vector3(0, Methane.distCH, 0);
+        this.elements.hydrogens[0].setPosition(position.x, position.y, position.z);
 
         let angle = (109 / 180) * Math.PI;
-        position.applyAxisAngle(new THREE.Vector3( 0, 0, 1 ), -angle);
-        this.elements.hydrogens[1].setPosition( position.x, position.y, position.z );
+        position.applyAxisAngle(new THREE.Vector3(0, 0, 1), -angle);
+        this.elements.hydrogens[1].setPosition(position.x, position.y, position.z);
 
         angle = (2 / 3) * Math.PI;
-        position.applyAxisAngle(new THREE.Vector3( 0, 1, 0 ), angle);
-        this.elements.hydrogens[2].setPosition( position.x, position.y, position.z );
+        position.applyAxisAngle(new THREE.Vector3(0, 1, 0), angle);
+        this.elements.hydrogens[2].setPosition(position.x, position.y, position.z);
 
         angle = (2 / 3) * Math.PI;
-        position.applyAxisAngle(new THREE.Vector3( 0, 1, 0 ), angle);
-        this.elements.hydrogens[3].setPosition( position.x, position.y, position.z );
+        position.applyAxisAngle(new THREE.Vector3(0, 1, 0), angle);
+        this.elements.hydrogens[3].setPosition(position.x, position.y, position.z);
 
         this.elements.hydrogens.forEach((hydrogen) => {
             const bond = new Bond(this.elements.carbons[0], hydrogen, 1);

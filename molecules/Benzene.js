@@ -27,7 +27,7 @@ class Benzene {
         bonds: [],
     }
 
-    constructor () {
+    constructor() {
         this._buildRing();
         this._buildHydrogens();
 
@@ -52,8 +52,8 @@ class Benzene {
         this.elements.carbons = Benzene.orientations.map((pos) => {
             const carbon = new Carbon();
             carbon.setPosition(
-                pos[0] * Benzene.distCC, 
-                pos[1] * Benzene.distCC, 
+                pos[0] * Benzene.distCC,
+                pos[1] * Benzene.distCC,
                 pos[2] * Benzene.distCC
             );
 
@@ -63,8 +63,8 @@ class Benzene {
 
         for (let i = 0; i < 6; i++) {
             const bond = new Bond(
-                this.elements.carbons[i], 
-                this.elements.carbons[(i + 1) % 6], 
+                this.elements.carbons[i],
+                this.elements.carbons[(i + 1) % 6],
                 1
             );
 
@@ -76,14 +76,14 @@ class Benzene {
     _buildHydrogens = () => {
         for (let i = 0; i < 6; i++) {
             const group = new THREE.Group();
-    
+
             const hydrogen = new Hydrogen();
             hydrogen.setPosition(
-                Benzene.orientations[i][0] * (Benzene.distCH + Benzene.distCC), 
-                Benzene.orientations[i][1] * (Benzene.distCH + Benzene.distCC), 
+                Benzene.orientations[i][0] * (Benzene.distCH + Benzene.distCC),
+                Benzene.orientations[i][1] * (Benzene.distCH + Benzene.distCC),
                 Benzene.orientations[i][2] * (Benzene.distCH + Benzene.distCC)
             );
-    
+
             const bond = new Bond(hydrogen, this.elements.carbons[i], 1);
 
             group.add(hydrogen.group);
