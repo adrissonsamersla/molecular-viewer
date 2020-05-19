@@ -13,7 +13,7 @@ const main = () => {
     scene.add(ambientLight);
     scene.add(directionalLight);
 
-    // adding object
+    // COMENTE OU DESCOMENTE AS LINHAS A SEGUIR PARA DEFINIR A MOLÉCULA
     const molecule = new Benzene();
     //const molecule = new Methane();
 
